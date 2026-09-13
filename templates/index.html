@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kaolack Basket Club</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="hero">
+    <svg class="logo-panier" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="15" y="10" width="70" height="45" rx="3" fill="#ff6b35" stroke="#1a1a1a" stroke-width="2"/>
+        <rect x="35" y="18" width="30" height="30" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+        <ellipse cx="50" cy="58" rx="28" ry="6" fill="none" stroke="#ff6b35" stroke-width="3"/>
+        <path d="M22 58 Q22 75 50 78 Q78 75 78 58" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.7"/>
+        <path d="M28 58 Q28 72 50 75 Q72 72 72 58" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.7"/>
+        <path d="M35 58 L38 76 M43 58 L45 78 M50 58 L50 78 M57 58 L55 78 M65 58 L62 76" stroke="#ffffff" stroke-width="1.2" opacity="0.7"/>
+    </svg>
+    <h1>Kaolack Basket Club</h1>
+</div>
+
+    <div class="container">
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="valeur">{{ joueurs|length }}</div>
+                <div class="label">Joueurs</div>
+            </div>
+            <div class="stat-card">
+                <div class="valeur">{{ victoires }}</div>
+                <div class="label">Victoires</div>
+            </div>
+            <div class="stat-card">
+                <div class="valeur">{{ matchs|length }}</div>
+                <div class="label">Matchs</div>
+            </div>
+        </div>
+
+        <h2>Effectif</h2>
+       <ul class="effectif-grid">
+    {% for id, nom, poste, numero in joueurs %}
+        <li class="carte-joueur">
+            <a href="/joueur/{{ id }}">
+                <img src="https://ui-avatars.com/api/?name={{ nom }}&background=15803d&color=fff&size=100" alt="{{ nom }}">
+                <div class="numero-badge">{{ numero }}</div>
+                <div class="nom-joueur">{{ nom }}</div>
+                <div class="poste-joueur">{{ poste }}</div>
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+<p><a href="/ajouter-match" style="color: #15803d; font-weight: bold; text-decoration: none;">+ Ajouter un match</a></p>
+      <h2>Résultats</h2>
+<ul class="liste-resultats">
+    {% for adversaire, score_nous, score_adversaire, date in matchs %}
+        <li class="{% if score_nous > score_adversaire %}victoire{% else %}defaite{% endif %} carte-match">
+            <div class="match-info">
+                <span class="match-adversaire">vs {{ adversaire }}</span>
+                <span class="match-date">{{ date }}</span>
+            </div>
+            <div class="match-score">
+                <span class="score-nous">{{ score_nous }}</span>
+                <span class="score-sep">-</span>
+                <span class="score-eux">{{ score_adversaire }}</span>
+            </div>
+            <span class="badge">{% if score_nous > score_adversaire %}Victoire{% else %}Défaite{% endif %}</span>
+        </li>
+    {% endfor %}
+</ul>
+<h2>Prochains matchs</h2>
+<ul class="liste-avenir">
+    {% for adversaire, date, lieu in prochains_matchs %}
+        <li class="carte-avenir">
+            <svg class="icone-calendrier" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="#f97316" stroke-width="1.8"/>
+    <line x1="3" y1="9" x2="21" y2="9" stroke="#f97316" stroke-width="1.8"/>
+    <line x1="7" y1="3" x2="7" y2="7" stroke="#f97316" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="17" y1="3" x2="17" y2="7" stroke="#f97316" stroke-width="1.8" stroke-linecap="round"/>
+</svg>
+            <div class="match-info">
+                <span class="match-adversaire">vs {{ adversaire }}</span>
+                <span class="match-date">{{ date }} — {{ lieu }}</span>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+    </div>
+    <footer class="footer">
+    <span class="ballon-footer">🏀</span>
+    <p>Kaolack Basket Club — Fait avec passion</p>
+</footer>
+</body>
+</html>

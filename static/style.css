@@ -1,0 +1,443 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)),
+        url('parquet.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.hero {
+    background: linear-gradient(135deg, #15803d, #166534);
+    color: white;
+    text-align: center;
+    padding: 50px 20px 40px;
+    border-radius: 0 0 24px 24px;
+    margin-bottom: 30px;
+}
+
+.ballon {
+    font-size: 56px;
+    display: inline-block;
+    animation: rebond 1s infinite;
+}
+
+@keyframes rebond {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-22px); }
+}
+
+.hero h1 {
+    color: white;
+    border: none;
+    margin: 10px 0 0;
+    font-size: 2.2em;
+    letter-spacing: 1px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.stats-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    flex: 1;
+    background: white;
+    border: 1px solid #dcfce7;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.stat-card .valeur {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #15803d;
+}
+
+.stat-card .label {
+    font-size: 0.85em;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+h2 {
+    color: #15803d;
+    border-left: 5px solid #15803d;
+    padding-left: 10px;
+    margin-top: 30px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: white;
+    margin: 8px 0;
+    padding: 14px 18px;
+    border-radius: 8px;
+    border: 1px solid #e5f5e9;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.15s ease;
+}
+
+li:hover {
+    transform: translateX(4px);
+}
+
+.numero {
+    background: #15803d;
+    color: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85em;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.victoire {
+    border-left: 5px solid #15803d;
+}
+
+.defaite {
+    border-left: 5px solid #dc2626;
+}
+
+.badge {
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.victoire .badge {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.defaite .badge {
+    background: #fee2e2;
+    color: #dc2626;
+}
+.effectif-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+}
+
+.carte-joueur {
+    background: white;
+    border: 1px solid #e5f5e9;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    opacity: 0;
+    animation: apparition 0.5s ease forwards;
+}
+
+.carte-joueur a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.carte-joueur:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(21, 128, 61, 0.2);
+}
+
+.carte-joueur img {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+.numero-badge {
+    display: inline-block;
+    background: #15803d;
+    color: white;
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+}
+
+.nom-joueur {
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.poste-joueur {
+    font-size: 0.85em;
+    color: #666;
+}
+
+@keyframes apparition {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.carte-joueur:nth-child(1) { animation-delay: 0.05s; }
+.carte-joueur:nth-child(2) { animation-delay: 0.1s; }
+.carte-joueur:nth-child(3) { animation-delay: 0.15s; }
+.carte-joueur:nth-child(4) { animation-delay: 0.2s; }
+.carte-joueur:nth-child(5) { animation-delay: 0.25s; }
+.carte-joueur:nth-child(6) { animation-delay: 0.3s; }
+.carte-joueur:nth-child(7) { animation-delay: 0.35s; }
+.carte-joueur:nth-child(8) { animation-delay: 0.4s; }
+.carte-joueur:nth-child(9) { animation-delay: 0.45s; }
+.carte-joueur:nth-child(10) { animation-delay: 0.5s; }
+.carte-joueur:nth-child(11) { animation-delay: 0.55s; }
+.carte-joueur:nth-child(12) { animation-delay: 0.6s; }
+.hero {
+    animation: glissementHaut 0.6s ease;
+}
+
+@keyframes glissementHaut {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-card {
+    opacity: 0;
+    animation: apparition 0.5s ease forwards;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(21, 128, 61, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+h2 {
+    opacity: 0;
+    animation: glisserDroite 0.5s ease forwards;
+}
+
+@keyframes glisserDroite {
+    from { opacity: 0; transform: translateX(-15px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+li {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+li:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.victoire, .defaite {
+    position: relative;
+    overflow: hidden;
+}
+
+.victoire::before {
+    content: "🏆";
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    opacity: 0.15;
+}
+.hero {
+    animation: glissementHaut 0.6s ease;
+}
+
+@keyframes glissementHaut {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-card {
+    opacity: 0;
+    animation: apparition 0.5s ease forwards;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(21, 128, 61, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+h2 {
+    opacity: 0;
+    animation: glisserDroite 0.5s ease forwards;
+}
+
+@keyframes glisserDroite {
+    from { opacity: 0; transform: translateX(-15px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+li {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+li:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.victoire, .defaite {
+    position: relative;
+    overflow: hidden;
+}
+
+.victoire::before {
+    content: "🏆";
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    opacity: 0.15;
+}
+.container {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.container::before,
+.container::after {
+    content: "🏀";
+    position: absolute;
+    font-size: 120px;
+    opacity: 0.04;
+    z-index: -1;
+    animation: flotter 8s ease-in-out infinite;
+}
+
+.container::before {
+    top: 50px;
+    right: -40px;
+    animation-delay: 0s;
+}
+
+.container::after {
+    top: 600px;
+    left: -50px;
+    animation-delay: 4s;
+}
+
+@keyframes flotter {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-30px) rotate(15deg); }
+}
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #dcfce7;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.ballon-footer {
+    display: inline-block;
+    font-size: 24px;
+    animation: rebond 1s infinite;
+    margin-bottom: 8px;
+}
+.liste-resultats, .liste-avenir {
+    list-style: none;
+    padding: 0;
+}
+
+.carte-match, .carte-avenir {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 10px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    opacity: 0;
+    animation: apparition 0.4s ease forwards;
+}
+
+.carte-match:nth-child(1), .carte-avenir:nth-child(1) { animation-delay: 0.05s; }
+.carte-match:nth-child(2), .carte-avenir:nth-child(2) { animation-delay: 0.15s; }
+.carte-match:nth-child(3), .carte-avenir:nth-child(3) { animation-delay: 0.25s; }
+
+.match-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.match-adversaire {
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.match-date {
+    font-size: 0.82em;
+    color: #888;
+}
+
+.match-score {
+    font-size: 1.4em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.victoire .score-nous { color: #15803d; }
+.defaite .score-nous { color: #dc2626; }
+.score-eux { color: #999; }
+.score-sep { color: #ccc; }
+
+.carte-avenir {
+    border-left: 5px solid #f97316;
+}
+
+.icone-calendrier {
+    width: 26px;
+    height: 26px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+.logo-panier {
+    width: 90px;
+    height: 90px;
+    animation: rebond 1s infinite;
+}

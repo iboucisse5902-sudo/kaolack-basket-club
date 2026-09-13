@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter un match — Kaolack Basket Club</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="hero">
+        <span class="ballon">🏀</span>
+        <h1>Ajouter un match</h1>
+    </div>
+
+    <div class="container">
+        <form method="POST" style="display: flex; flex-direction: column; gap: 14px; max-width: 400px;">
+            <label>
+                Adversaire
+                <input type="text" name="adversaire" required style="width: 100%; padding: 8px; margin-top: 4px;">
+            </label>
+
+            <label>
+                Notre score
+                <input type="number" name="score_nous" required style="width: 100%; padding: 8px; margin-top: 4px;">
+            </label>
+
+            <label>
+                Score adversaire
+                <input type="number" name="score_adversaire" required style="width: 100%; padding: 8px; margin-top: 4px;">
+            </label>
+
+            <label>
+                Date
+                <input type="date" name="date" required style="width: 100%; padding: 8px; margin-top: 4px;">
+            </label>
+
+            <button type="submit" style="background: #15803d; color: white; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">
+                Enregistrer
+            </button>
+        </form>
+
+        <p style="margin-top: 20px;">
+            <a href="/" style="color: #15803d; font-weight: bold; text-decoration: none;">← Retour à l'équipe</a>
+        </p>
+    </div>
+</body>
+</html>
